@@ -1,9 +1,7 @@
-import localStorage from "cls-hooked";
+import { createNamespace } from "cls-hooked";
 import { NextFunction } from "express";
 
-const { createNamespace } = localStorage;
-
-const NAMESPACE_NAME = "compliance-internal-api";
+const NAMESPACE_NAME = "thread-local-storage";
 
 const session = createNamespace(NAMESPACE_NAME);
 

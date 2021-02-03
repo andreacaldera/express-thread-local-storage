@@ -1,4 +1,4 @@
-import { getTestQuery } from "./local-storage";
+import { getTestQuery } from "express-thread-local-storage";
 import { logger } from "./logger";
 
 export const testTransformer = (data: string, testQuery: string): string => {
