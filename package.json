@@ -1,6 +1,6 @@
 {
   "name": "express-thread-local-storage",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Thread-local storage implementation for express.js",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
