@@ -1,4 +1,5 @@
-import { getThreadLocalData } from "../../../";
+// import { getThreadLocalData } from "../../../";
+import { getThreadLocalData } from "express-thread-local-storage";
 import { logger } from "./logger";
 import { ThreadLocalData } from "./router";
 

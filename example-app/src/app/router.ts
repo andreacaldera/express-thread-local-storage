@@ -1,5 +1,9 @@
 import { Router } from "express";
-import { createLocalStorage, getThreadLocalData } from "../../../";
+// import { createLocalStorage, getThreadLocalData } from "../../../";
+import {
+  createLocalStorage,
+  getThreadLocalData,
+} from "express-thread-local-storage";
 import { logger } from "./logger";
 import { createTestService } from "./service";
 

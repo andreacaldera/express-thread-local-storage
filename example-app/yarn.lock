@@ -960,10 +960,10 @@ etag@~1.8.1:
   resolved "https://registry.yarnpkg.com/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
   integrity sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc=
 
-express-thread-local-storage@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/express-thread-local-storage/-/express-thread-local-storage-0.0.3.tgz#45acbfad75482ba5b8e19edea3c7a143feb1dd65"
-  integrity sha512-FKm+XUcV0zQXvZnhoMJYpvT5XC6oVOBWsn2NI4/TSWVpd5SYo0b7EHFw+eovAh+yGuy6Cy4VAVzRMWQcj9BJPQ==
+express-thread-local-storage@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/express-thread-local-storage/-/express-thread-local-storage-0.0.4.tgz#c13bf81ae5f0781a078a2c24e0c29d39e81411b5"
+  integrity sha512-byH+3ixN6wrYkKWFBCNUKYpcGMskGyqpvKS1bQH/R42oFCj9QNsz1H6LxhfGdl6pL1FLKv/PXOR/Ba2j2fyLzw==
   dependencies:
     cls-hooked "^4.2.2"
     cors "^2.8.5"
