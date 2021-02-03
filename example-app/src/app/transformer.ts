@@ -1,12 +1,16 @@
-import { getTestQuery } from "express-thread-local-storage";
+import { getThreadLocalData } from "../../../";
 import { logger } from "./logger";
+import { ThreadLocalData } from "./router";
 
 export const testTransformer = (data: string, testQuery: string): string => {
   logger.debug(`Test query from param ${testQuery}`);
-  logger.debug(`Test query from thread local ${getTestQuery()}`);
-  if (testQuery !== getTestQuery()) {
+  const {
+    testQuery: threadLocalTestQuery,
+  } = getThreadLocalData<ThreadLocalData>();
+  logger.debug(`Test query from thread local ${threadLocalTestQuery}`);
+  if (testQuery !== threadLocalTestQuery) {
     logger.warn(
-      `Thread local data is incorrect. Test query from param ${testQuery}. Test query from thread local ${getTestQuery()}`
+      `Thread local data is incorrect. Test query from param ${testQuery}. Test query from thread local ${threadLocalTestQuery}`
     );
   } else {
     logger.debug("Thread local data is correct");

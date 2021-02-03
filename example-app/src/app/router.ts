@@ -1,7 +1,12 @@
 import { Router } from "express";
-import { createLocalStorage, getTestQuery } from "express-thread-local-storage";
+import { createLocalStorage, getThreadLocalData } from "../../../";
 import { logger } from "./logger";
 import { createTestService } from "./service";
+
+// todo move
+export type ThreadLocalData = {
+  testQuery: string;
+};
 
 export const createTestRouter = () => {
   const router = Router();
@@ -9,12 +14,17 @@ export const createTestRouter = () => {
 
   router.use((req, _res, next) => {
     const testQuery = req.query.testQuery as string;
-    createLocalStorage({ testQuery: testQuery }, next);
+    createLocalStorage<ThreadLocalData>({ testQuery: testQuery }, next);
   });
 
   router.get("/test", async (req, res, next) => {
     const testQuery = req.query.testQuery as string;
-    logger.debug(`Data from thread local in next middleware ${getTestQuery()}`);
+    const {
+      testQuery: threadLocalTestQuery,
+    } = getThreadLocalData<ThreadLocalData>();
+    logger.debug(
+      `Data from thread local in next middleware ${threadLocalTestQuery}`
+    );
     res.status(200).send({
       status: "test is up",
       data: testService(testQuery),

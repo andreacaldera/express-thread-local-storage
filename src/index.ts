@@ -1,17 +1,16 @@
 import { createNamespace } from "cls-hooked";
-import { NextFunction } from "express";
 
 const NAMESPACE_NAME = "thread-local-storage";
 
+type Callback = () => void;
+
 const session = createNamespace(NAMESPACE_NAME);
 
-export const getTestQuery = (): string => session.get("testQuery");
+export const getThreadLocalData = <T>(): T => session.get("data");
 
-type Data = { testQuery: string };
-
-export const createLocalStorage = ({ testQuery }: Data, next: NextFunction) => {
+export const createLocalStorage = <T>(data: T, next: Callback) => {
   session.run(() => {
-    session.set("testQuery", testQuery);
+    session.set("data", data);
     next();
   });
 };
